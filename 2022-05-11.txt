@@ -1,1 +1,5 @@
-1
+1.완성하는 능력일 구비하고 효율성을 추구해야 한다. 즉 클린코드의 내용은 우선 코딩을 할 줄 아는 능력이 생성된 이후에 실행한다.
+2.정답을 찾아서 가는 것이 아닌 사람마다의 풀이법을 보고 각 풀이법의 효율성을 생각해본다.
+3.과거의 프로그래밍은 각 모듈을 일일이 개발하는 단계, 지금의 프로그래밍은 API를 활용하는 것
+4.function, method 그리고 String 관련 method
+5.buffer, token, getter,setter,synchronized,ansynchronized, stream,
