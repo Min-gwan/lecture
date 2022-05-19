@@ -588,11 +588,9 @@ public class VendingM01 {
 			}
 
 		}
+		System.out.println("========================");
+		System.out.println("Vending Machine Power Off");
+		System.out.println("========================");
 	}
-	System.out.println("========================");
-	System.out.println("Vending Machine Power Off");
-	System.out.println("========================");
 }
 
- }
-}
