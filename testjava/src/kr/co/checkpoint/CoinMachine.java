@@ -1,8 +1,12 @@
 package kr.co.checkpoint;
 
+import java.util.Scanner;
+
 public class CoinMachine {
-//	µ¿Àü °¹¼ö
-	int coin500 = 100;
-	int coin100 = 100;
+	public static void main(String[] args) {
+		
 	
+//	µ¿Àü °¹¼ö
+	
+	}
 }
