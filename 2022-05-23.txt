@@ -1,0 +1,7 @@
+1. 배열명은 배열의 시작 주소를 나타냄. 포인터
+2. OS의 64,32 bit는 메모리 주소를 나타내는 값의 범위 
+3. call by value and 직접지정방식와 call by reference and 간접지정방식의 차이점(중요함)
+4. memory allocation: new , static
+5. 배열의 길이는 필드화 되어있는데, 이는 배열 생성이 고정값을 가진다는 뜻. list의 경우에는 함수로 되어있는데 이는 계산을 통해 가져온다는 것
+6. boradcast: 전체가 모두  multicast: 전체 그러나 선별적 unicast: 일대일 
+7. 
