@@ -1,0 +1,12 @@
+1. quick sort, bubble sort, binary sort, 
+2. tree structure  
+3. pattern 인식
+4. project를 진행하는게 중요함. 진행과정에서 발생하는 코드 관련 생각이나 대인관계 등을 물어봄.
+
+Data structure
+1. Stack: FILO 
+2. Queue: FIFO
+3. Map: [k,V] key value ,Set
+4. List: ArrayList , LinkedList
+
+ 

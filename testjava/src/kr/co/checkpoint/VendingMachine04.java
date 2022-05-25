@@ -136,7 +136,17 @@ public class VendingMachine04 {
 //			provide process
 				switch (parseSelect) {
 				case 1:
-					
+					if(parseSelect>=productPrice[0]) {
+						System.out.println(productName[0]+" 결제 성공");
+						productStock[0]-= 1;
+						parseInput-=productPrice[0];
+					} else {
+						boolean stop = false;
+						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[0]-parseInput));
+						while(!stop) {
+							
+						}
+					}
 				case 2:
 				case 3:
 				case 4:
