@@ -42,18 +42,18 @@ public class RoomTest01_1 {
 				boolean stopMoney = false;
 				System.out.println("호실번호 선택");
 				selRoom = Integer.parseInt(scanner.nextLine());
-				if (room[selRoom] == 0) {
+				if (room[selRoom-1] == 0) {
 					System.out.println("예약자명을 입력하세요");
-					userName[selRoom] = scanner.nextLine();
+					userName[selRoom-1] = scanner.nextLine();
 					System.out.println("비밀번호를 입력하세요");
-					userPassword[selRoom] = scanner.nextLine();
-					System.out.println(roomPrice[selRoom] + "원을 넣어주세요");
+					userPassword[selRoom-1] = scanner.nextLine();
+					System.out.println(roomPrice[selRoom-1] + "원을 넣어주세요");
 					System.out.print(">");
 					selMoney = Integer.parseInt(scanner.nextLine());
 					while (!stopMoney) {
 						if (selMoney >= roomPrice[selRoom]) {
 							room[selRoom] = 1;
-							System.out.println(selRoom + "번 호실이 예약되었습니다.");
+							System.out.println((selRoom+1) + "번 호실이 예약되었습니다.");
 							System.out.println("잔돈은 " + (selMoney - roomPrice[selRoom]) + "원 입니다.");
 							break;
 						} else {

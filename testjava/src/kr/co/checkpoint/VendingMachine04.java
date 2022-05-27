@@ -128,6 +128,7 @@ public class VendingMachine04 {
 				for (int i = 0; i < productName.length; i++) {
 					System.out.printf("%d.%s\tprice:%d\tOnsale:%b%n", i + 1, productName[i], productPrice[i],
 							productOnsale[i]);
+					System.out.println("balance>"+parseInput);
 				}
 				System.out.println();
 				System.out.print("Select number>");
@@ -140,11 +141,23 @@ public class VendingMachine04 {
 						System.out.println(productName[0]+" 결제 성공");
 						productStock[0]-= 1;
 						parseInput-=productPrice[0];
+						break;
 					} else {
 						boolean stop = false;
+						int menuSelect = 0;
 						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[0]-parseInput));
 						while(!stop) {
-							
+							System.out.println("메뉴를 선택해주세요.");
+							System.out.println("1.금액 보충하기 2.상위메뉴로");
+							menuSelect = Integer.parseInt(scanner.nextLine());
+							if(menuSelect==1) {
+								boolean stopInner = false;
+								while(!stopInner) {
+									System.out.println("필요한 금액: "+ (productPrice[0]-parseInput));
+									System.out.print(">");									
+								}
+								
+							}
 						}
 					}
 				case 2:
