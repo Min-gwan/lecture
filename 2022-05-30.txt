@@ -1,0 +1,7 @@
+1. 복습: 배열의 이름은 포인터
+2. 지식을 습득하기 위한 여러가지 방법을 찾아보자
+3. 객체지향에서는 함수(function)를 메소드(method)라 칭함.
+4. signature = type + name + parameter
+5. type = 1.void 2.primitive 3.reference
+4. 함수는 한 가지 기능만을 정의하게 하자.
+5. 

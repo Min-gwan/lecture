@@ -118,7 +118,6 @@ public class VendingMachine04 {
 					state = SUCCESS_MENU;
 				}
 			}
-			System.out.println("parse:" + parseInput);
 			System.out.println();
 			System.out.println();
 //			Menu Console and Select
@@ -129,7 +128,7 @@ public class VendingMachine04 {
 					System.out.printf("%d.%s\tprice:%d\tOnsale:%b%n", i + 1, productName[i], productPrice[i],
 							productOnsale[i]);
 				}
-				System.out.println("balance>"+parseInput);
+				System.out.println("balance>" + parseInput);
 				System.out.println();
 				System.out.print("Select number>");
 				userSelcect = scanner.nextLine();
@@ -137,187 +136,203 @@ public class VendingMachine04 {
 //			provide process
 				switch (parseSelect) {
 				case 1:
-					if(parseInput>=productPrice[0]) {
+					if (parseInput >= productPrice[0] && productStock[0] > 0) {
 						int oneMore = 0;
-						System.out.println(productName[0]+" 결제 성공");
-						productStock[0]-= 1;
-						parseInput-=productPrice[0];
+						System.out.println(productName[0] + " 결제 성공");
+						productStock[0] -= 1;
+						parseInput -= productPrice[0];
 						System.out.println("추가 주문하시겠습니까?");
-						System.out.println("balance>"+parseInput);
+						System.out.println("balance>" + parseInput);
 						System.out.print("1.Yes 2.No");
 						System.out.print(">");
-						oneMore =Integer.parseInt(scanner.nextLine());
-						if(oneMore == 1) {
-							break;							
+						oneMore = Integer.parseInt(scanner.nextLine());
+						if (oneMore == 1) {
+							break;
 						} else {
 							masterTotalMoney -= parseInput;
-							System.out.println(parseInput+"원을 반환합니다.");
+							System.out.println(parseInput + "원을 반환합니다.");
 							break;
 						}
-					} else {
+					} else if (parseInput < productPrice[0]) {
 						boolean stop = false;
 						int menuSelect = 0;
-						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[0]-parseInput));
-						while(!stop) {
+						System.out.println("금액이 부족합니다. 부족한 금액:" + (productPrice[0] - parseInput));
+						while (!stop) {
+							System.out.println(stop);
 							System.out.println("메뉴를 선택해주세요.");
 							System.out.println("1.금액 보충하기 2.상위메뉴로");
 							menuSelect = Integer.parseInt(scanner.nextLine());
-							if(menuSelect==1) {
-								boolean stopInner = false;
-								while(!stopInner) {
-									System.out.println("필요한 금액: "+ (productPrice[0]-parseInput));
-									System.out.print(">");									
+							if (menuSelect == 1) {
+								while (true) {
+									int addMoney;
+									System.out.println("필요한 금액: " + (productPrice[0] - parseInput));
+									System.out.print(">");
+									addMoney = Integer.parseInt(scanner.nextLine());
+									parseInput += addMoney;
+									if(parseInput>=productPrice[0]) {
+										System.out.println(productName[0] + " 결제 성공");
+										productStock[0] -= 1;
+										parseInput -= productPrice[0];
+										stop = true;
+										break;
+									}
 								}
-								
+								System.out.println(1);
 							}
+							System.out.println(stop);
 						}
+						break;
+					} else if (productStock[0] <= 0) {
+						System.out.printf("%s의 재고가 없습니다.%n", productName[0]);
+						System.out.println("메뉴 선택으로 돌아갑니다.");
+						break;
 					}
 				case 2:
-					if(parseInput>=productPrice[1]) {
+					if (parseInput >= productPrice[1]) {
 						int oneMore = 0;
-						System.out.println(productName[1]+" 결제 성공");
-						productStock[1]-= 1;
-						parseInput-=productPrice[1];
+						System.out.println(productName[1] + " 결제 성공");
+						productStock[1] -= 1;
+						parseInput -= productPrice[1];
 						System.out.println("추가 주문하시겠습니까?");
-						System.out.println("balance>"+parseInput);
+						System.out.println("balance>" + parseInput);
 						System.out.print("1.Yes 2.No");
 						System.out.print(">");
-						oneMore =Integer.parseInt(scanner.nextLine());
-						if(oneMore == 1) {
-							break;							
+						oneMore = Integer.parseInt(scanner.nextLine());
+						if (oneMore == 1) {
+							break;
 						} else {
 							masterTotalMoney -= parseInput;
-							System.out.println(parseInput+"원을 반환합니다.");
+							System.out.println(parseInput + "원을 반환합니다.");
 							break;
 						}
 					} else {
 						boolean stop = false;
 						int menuSelect = 0;
-						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[1]-parseInput));
-						while(!stop) {
+						System.out.println("금액이 부족합니다. 부족한 금액:" + (productPrice[1] - parseInput));
+						while (!stop) {
 							System.out.println("메뉴를 선택해주세요.");
 							System.out.println("1.금액 보충하기 2.상위메뉴로");
 							menuSelect = Integer.parseInt(scanner.nextLine());
-							if(menuSelect==1) {
+							if (menuSelect == 1) {
 								boolean stopInner = false;
-								while(!stopInner) {
-									System.out.println("필요한 금액: "+ (productPrice[1]-parseInput));
-									System.out.print(">");									
+								while (!stopInner) {
+									System.out.println("필요한 금액: " + (productPrice[1] - parseInput));
+									System.out.print(">");
 								}
-								
+
 							}
 						}
 					}
 				case 3:
-					if(parseInput>=productPrice[2]) {
+					if (parseInput >= productPrice[2]) {
 						int oneMore = 0;
-						System.out.println(productName[2]+" 결제 성공");
-						productStock[2]-= 1;
-						parseInput-=productPrice[2];
+						System.out.println(productName[2] + " 결제 성공");
+						productStock[2] -= 1;
+						parseInput -= productPrice[2];
 						System.out.println("추가 주문하시겠습니까?");
-						System.out.println("balance>"+parseInput);
+						System.out.println("balance>" + parseInput);
 						System.out.print("1.Yes 2.No");
 						System.out.print(">");
-						oneMore =Integer.parseInt(scanner.nextLine());
-						if(oneMore == 1) {
-							break;							
+						oneMore = Integer.parseInt(scanner.nextLine());
+						if (oneMore == 1) {
+							break;
 						} else {
 							masterTotalMoney -= parseInput;
-							System.out.println(parseInput+"원을 반환합니다.");
+							System.out.println(parseInput + "원을 반환합니다.");
 							break;
 						}
 					} else {
 						boolean stop = false;
 						int menuSelect = 0;
-						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[2]-parseInput));
-						while(!stop) {
+						System.out.println("금액이 부족합니다. 부족한 금액:" + (productPrice[2] - parseInput));
+						while (!stop) {
 							System.out.println("메뉴를 선택해주세요.");
 							System.out.println("1.금액 보충하기 2.상위메뉴로");
 							menuSelect = Integer.parseInt(scanner.nextLine());
-							if(menuSelect==1) {
+							if (menuSelect == 1) {
 								boolean stopInner = false;
-								while(!stopInner) {
-									System.out.println("필요한 금액: "+ (productPrice[2]-parseInput));
-									System.out.print(">");									
+								while (!stopInner) {
+									System.out.println("필요한 금액: " + (productPrice[2] - parseInput));
+									System.out.print(">");
 								}
-								
+
 							}
 						}
 					}
 				case 4:
-					if(parseInput>=productPrice[3]) {
-					int oneMore = 0;
-					System.out.println(productName[3]+" 결제 성공");
-					productStock[3]-= 1;
-					parseInput-=productPrice[3];
-					System.out.println("추가 주문하시겠습니까?");
-					System.out.println("balance>"+parseInput);
-					System.out.print("1.Yes 2.No");
-					System.out.print(">");
-					oneMore =Integer.parseInt(scanner.nextLine());
-					if(oneMore == 1) {
-						break;							
-					} else {
-						masterTotalMoney -= parseInput;
-						System.out.println(parseInput+"원을 반환합니다.");
-						break;
-					}
-				} else {
-					boolean stop = false;
-					int menuSelect = 0;
-					System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[3]-parseInput));
-					while(!stop) {
-						System.out.println("메뉴를 선택해주세요.");
-						System.out.println("1.금액 보충하기 2.상위메뉴로");
-						menuSelect = Integer.parseInt(scanner.nextLine());
-						if(menuSelect==1) {
-							boolean stopInner = false;
-							while(!stopInner) {
-								System.out.println("필요한 금액: "+ (productPrice[3]-parseInput));
-								System.out.print(">");									
-							}
-							
-						}
-					}
-				}
-				case 5:
-					if(parseInput>=productPrice[4]) {
+					if (parseInput >= productPrice[3]) {
 						int oneMore = 0;
-						System.out.println(productName[4]+" 결제 성공");
-						productStock[4]-= 1;
-						parseInput-=productPrice[4];
+						System.out.println(productName[3] + " 결제 성공");
+						productStock[3] -= 1;
+						parseInput -= productPrice[3];
 						System.out.println("추가 주문하시겠습니까?");
-						System.out.println("balance>"+parseInput);
+						System.out.println("balance>" + parseInput);
 						System.out.print("1.Yes 2.No");
 						System.out.print(">");
-						oneMore =Integer.parseInt(scanner.nextLine());
-						if(oneMore == 1) {
-							break;							
+						oneMore = Integer.parseInt(scanner.nextLine());
+						if (oneMore == 1) {
+							break;
 						} else {
 							masterTotalMoney -= parseInput;
-							System.out.println(parseInput+"원을 반환합니다.");
+							System.out.println(parseInput + "원을 반환합니다.");
 							break;
 						}
 					} else {
 						boolean stop = false;
 						int menuSelect = 0;
-						System.out.println("금액이 부족합니다. 부족한 금액:"+(productPrice[4]-parseInput));
-						while(!stop) {
+						System.out.println("금액이 부족합니다. 부족한 금액:" + (productPrice[3] - parseInput));
+						while (!stop) {
 							System.out.println("메뉴를 선택해주세요.");
 							System.out.println("1.금액 보충하기 2.상위메뉴로");
 							menuSelect = Integer.parseInt(scanner.nextLine());
-							if(menuSelect==1) {
+							if (menuSelect == 1) {
 								boolean stopInner = false;
-								while(!stopInner) {
-									System.out.println("필요한 금액: "+ (productPrice[4]-parseInput));
-									System.out.print(">");									
+								while (!stopInner) {
+									System.out.println("필요한 금액: " + (productPrice[3] - parseInput));
+									System.out.print(">");
 								}
-								
+
 							}
 						}
 					}
-					default:
-						System.out.println("메뉴에 있는 번호만 눌러주세요!");
+				case 5:
+					if (parseInput >= productPrice[4]) {
+						int oneMore = 0;
+						System.out.println(productName[4] + " 결제 성공");
+						productStock[4] -= 1;
+						parseInput -= productPrice[4];
+						System.out.println("추가 주문하시겠습니까?");
+						System.out.println("balance>" + parseInput);
+						System.out.print("1.Yes 2.No");
+						System.out.print(">");
+						oneMore = Integer.parseInt(scanner.nextLine());
+						if (oneMore == 1) {
+							break;
+						} else {
+							masterTotalMoney -= parseInput;
+							System.out.println(parseInput + "원을 반환합니다.");
+							break;
+						}
+					} else {
+						boolean stop = false;
+						int menuSelect = 0;
+						System.out.println("금액이 부족합니다. 부족한 금액:" + (productPrice[4] - parseInput));
+						while (!stop) {
+							System.out.println("메뉴를 선택해주세요.");
+							System.out.println("1.금액 보충하기 2.상위메뉴로");
+							menuSelect = Integer.parseInt(scanner.nextLine());
+							if (menuSelect == 1) {
+								boolean stopInner = false;
+								while (!stopInner) {
+									System.out.println("필요한 금액: " + (productPrice[4] - parseInput));
+									System.out.print(">");
+								}
+
+							}
+						}
+					}
+				default:
+					System.out.println("메뉴에 있는 번호만 눌러주세요!");
 				}
 			}
 		} // Main logic end
