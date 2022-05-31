@@ -338,8 +338,6 @@ public class VendingMachine04 {
 		} // Main logic end
 
 //		Power Off
-		System.out.println("======================");
-		System.out.println("======Power Off=======");
-		System.out.println("======================");
+		
 	}
 }

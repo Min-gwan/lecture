@@ -8,13 +8,20 @@ public class FunctionTest02 {
 		System.out.println("1. n단 2. 두 수의 합 3.입력 수만큼의 합 5.종료");
 		System.out.print("select Number : ");
 	}
-	private static void nMultipleTable(int first) {
+	private static void nMultipleTable(int number) {
 		for(int i=1; i<10;i++) {
-			System.out.println(first+"*"+i+"="+(first*i));
+			System.out.println(number+"*"+i+"="+(number*i));
 		}
 	}
 	private static int sumOfTwo(int first, int second) {
 		return (first+second);
+	}
+	private static int sumOfNumbers(int... numbers) {
+		int sum =0;
+		for(int number : numbers) {
+			sum+=number;
+		}
+		return sum;
 	}
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -38,6 +45,10 @@ public class FunctionTest02 {
 				System.out.println(sumOfTwo(first, second));
 				break;
 			case 3:
+				System.out.println("write number");
+				System.out.print(">");
+				int sumNumbers = sumOfNumbers(Integer.parseInt(scanner.nextLine()));
+				System.out.println(sumNumbers);
 				break;
 			case 5:
 				System.out.println("프로그램 종료");
