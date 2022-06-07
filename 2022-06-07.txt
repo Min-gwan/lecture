@@ -1,0 +1,7 @@
+1. 상속을 tree , set 그림으로 이해
+2. parent/child, extends(확장), super,
+3. 다중상속과 interface
+4. design pattern(객체지향 설계) :sigletone,factory
+5. construct: instance의 기본값 설정
+6. compiler는 variable name으로 구별하는게 아니라 type으로 구분한다.
+7. DB는 relationship을 기반으로 하기 때문에 java프로그램을 상속으로 만들시 문제가 발생함. 염두해두자.

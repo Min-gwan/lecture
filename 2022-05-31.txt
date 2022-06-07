@@ -1,5 +1,5 @@
 1. 설계단에서 추상메소드 작업을 먼저함.
 2. abstract method를 모아논 것이 interface
 3. stack형 계산기가 큰 도움이 된다. 한번 해보자
-4. access modifier : public, protected, default(package),private
+4. access modifier : public, protected, default(package),privateg
 5. 
