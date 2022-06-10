@@ -19,9 +19,16 @@ public class Moniter {
 		System.out.printf("%s %d",mName,mPrice);
 		System.out.println();
 	}
+	public Moniter(String mName, int mPrice, String mDate, String madeIn) {
+		this(mName,mPrice);
+		this.mDate = mDate;
+		this.madeIn = madeIn;
+	}
 //	field
 	String mName;
 	int mPrice;
+	String mDate;
+	String madeIn;
 //	method
 	void turnOn() {
 		System.out.println(this.mName+"모니터 전원이 켜집니다.");
